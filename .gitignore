@@ -51,3 +51,5 @@ Session.vim
 .netrwhist
 *~
 
+makefile.dep
+webServ
