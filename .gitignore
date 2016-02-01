@@ -30,3 +30,24 @@
 
 # Debug files
 *.dSYM/
+
+#pluma files
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/libs
+
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# persistent undo 
+*.un~
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+
