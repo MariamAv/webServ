@@ -13,5 +13,7 @@ int main (int argc, char **argv)
 		printf("Need an advice ?\n");
 		return 0;
 
+	create_server(8080);
+	create_client();
 	
 }
