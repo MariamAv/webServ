@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <socket.c>
 #include "socket.h"
 
 int main (int argc, char **argv)
