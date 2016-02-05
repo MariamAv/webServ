@@ -48,5 +48,6 @@ int create_client() {
 		perror("accept");
 		return -1;
 	}
+	printf("BONJOUR BOB\n");
 	return 0;
 }
