@@ -25,3 +25,11 @@ socket_bind = bind(socket_server, (struct sockaddr *)&saddr, sizeof(saddr)) == -
 if (listen(socket_serveur,10) == -1) {
 	perror ("listen socket_server");
 }
+
+
+int socket_client;
+socket_client = accept(socket_server, NULL, NULL);
+if (socket_client == -1) {
+	perror("accept");
+}
+
