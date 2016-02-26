@@ -2,6 +2,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <unistd.h>
 #include "socket.h"
 
 int main ()
@@ -17,19 +18,30 @@ int main ()
 
 
 
-int socket_server;
-int create_server();
-int create_client() {
-
-	int socket_client;
-	socket_client = accept(socket_server, NULL, NULL);
-	if (socket_client == -1) {
-		perror("accept");
+	int socket_server;
+	if ((socket_server = create_server(8080)) == -1) {
+		perror("socket");
 		return -1;
 	}
-	printf("BONJOUR BOB\n");
-	return 0;
-}
+
+	int socket_client;
+	if ((socket_client = accept(socket_server, NULL, NULL)) == -1) {
+		perror("Connection refused");
+		return -1;
+	} 
+
+	puts("Client connected\n");
+
+	const char* message = "Bonjour 123\n"; 
+
+	if (write(socket_client, message, strlen(message)) == -1) {
+		perror("write");
+		return -1;
+    }
+
+
+    close(socket_server);
+    close(socket_client);
 
 	return 0;
 }
