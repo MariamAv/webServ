@@ -1,42 +1,31 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
+#include <unistd.h>
+#include <stdio.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include "socket.h"
+#include <netinet/ip.h> 
 
-int socket_server;
+int create_server(int port)
+{
+    int socket_server;
+    struct sockaddr_in saddr;
+    saddr.sin_family = AF_INET;
+    saddr.sin_port = htons(port);
+    saddr.sin_addr.s_addr = INADDR_ANY;
+    
+    if ((socket_server = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+        perror("Socket error");
+        return EXIT_FAILURE;
+    }
 
-int create_server() {
-	socket_server = socket(AF_INET, SOCK_STREAM, 0);
+    if (bind(socket_server, (struct sockaddr *) &saddr, sizeof(saddr)) == -1) {
+        perror("Bind error");
+        return EXIT_FAILURE;
+    }
 
-	if (socket_server == -1) {
-		perror("socket_server");
-		return -1;
-	}
-	struct sockaddr_in saddr;
-	saddr.sin_family = AF_INET;
-	saddr.sin_port = htons(8080);
-	saddr.sin_addr.s_addr = INADDR_ANY;
-
-	int socket_bind;
-
-	socket_bind = bind(socket_server, (struct sockaddr *)&saddr, sizeof(saddr));
-	if (socket_bind == -1) {
-		perror("bind socket_server");
-		return -1;
-	}
-	
-	return 0;
+    if (listen(socket_server, 10) == -1) {
+        perror("Listen error");
+        return EXIT_FAILURE;
+    }
+    return socket_server;
 }
-
-int create_listen() {
-	if (listen(socket_server,10) == -1) {
-		perror ("listen socket_server");
-		return -1;
-	}
-	return 0;
-}
-
-
