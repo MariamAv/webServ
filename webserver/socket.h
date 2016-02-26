@@ -7,7 +7,7 @@
 	La fonction retourne -1 en cas d ’ erreur ou le descripteur de la
 	socket créée . */
 
-int create_server (int port);
+int create_server ();
 #endif
 int create_client();
 int create_listen();
