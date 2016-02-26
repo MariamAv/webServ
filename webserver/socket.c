@@ -8,8 +8,7 @@
 
 int socket_server;
 
-int create_server(int port) {
-
+int create_server() {
 	socket_server = socket(AF_INET, SOCK_STREAM, 0);
 
 	if (socket_server == -1) {
@@ -18,7 +17,7 @@ int create_server(int port) {
 	}
 	struct sockaddr_in saddr;
 	saddr.sin_family = AF_INET;
-	saddr.sin_port = htons(port);
+	saddr.sin_port = htons(8080);
 	saddr.sin_addr.s_addr = INADDR_ANY;
 
 	int socket_bind;
@@ -40,14 +39,4 @@ int create_listen() {
 	return 0;
 }
 
-int create_client() {
 
-	int socket_client;
-	socket_client = accept(socket_server, NULL, NULL);
-	if (socket_client == -1) {
-		perror("accept");
-		return -1;
-	}
-	printf("BONJOUR BOB\n");
-	return 0;
-}
