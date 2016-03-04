@@ -20,7 +20,7 @@ int main ()
 
 	int socket_server;
 	if ((socket_server = create_server(8080)) == -1) {
-		perror("socket");
+		perror("socket error");
 		return -1;
 	}
 
@@ -32,10 +32,10 @@ int main ()
 
 	puts("Client connected\n");
 
-	const char* message = "Bonjour cher Client,\nVous êtes désormais connecté à ce magnifique serveur !\nPourquoi est-il magnifique ?\nJe n'en sais rien... \n"; 
+	const char* message = "Bonjour cher Client,\nVous êtes désormais connecté à ce magnifique serveur !\nPourquoi est-il magnifique ?\nJe n'en sais rien...\nMais il est magnifique, ok ?????\n"; 
 
 	if (write(socket_client, message, strlen(message)) == -1) {
-		perror("write1");
+		perror("write1 error");
 		return -1;
     }
 
@@ -43,7 +43,7 @@ int main ()
 	int lecture;
 	while((lecture = recv(socket_client, msg_ent, 50, 0))>0){
 		if (write(socket_client, msg_ent, strlen(msg_ent)) == -1) {
-			perror("write2");
+			perror("write2 error");
 			return -1;
    		}
 		memset(msg_ent,0, sizeof(msg_ent));
