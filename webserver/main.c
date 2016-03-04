@@ -35,9 +35,24 @@ int main ()
 	const char* message = "Bonjour cher Client,\nVous êtes désormais connecté à ce magnifique serveur !\nPourquoi est-il magnifique ?\nJe n'en sais rien... \n"; 
 
 	if (write(socket_client, message, strlen(message)) == -1) {
-		perror("write");
+		perror("write1");
 		return -1;
     }
+
+/*
+boucle : 
+- attente d'un message entrant sur le socket
+- renvoi du message recu write socket
+*/
+
+	char msg_ent[50];
+	int lecture;
+	while((lecture = recv(socket_client, msg_ent, 50, 0))>0){
+		if (write(socket_client, msg_ent, strlen(msg_ent)) == -1) {
+			perror("write2");
+			return -1;
+   		}
+	}
 
 
     close(socket_server);
