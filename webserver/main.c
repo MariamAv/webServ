@@ -32,7 +32,7 @@ int main ()
 
 	puts("Client connected\n");
 
-	const char* message = "Bonjour cher Client,\nVous êtes désormais connecté à ce magnifique serveur !\nPourquoi est-il magnifique ?\nJe n'en sais rien...\nMais il est magnifique, ok ?????\n"; 
+	const char* message = "Bonjour cher Client,\nVous êtes désormais connecté à ce magnifique serveur !\nPourquoi est-il magnifique ?\nJe n'en sais rien...\nMais il est magnifique, ok ????\n"; 
 
 	if (write(socket_client, message, strlen(message)) == -1) {
 		perror("write1 error");
