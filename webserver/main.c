@@ -39,12 +39,6 @@ int main ()
 		return -1;
     }
 
-/*
-boucle : 
-- attente d'un message entrant sur le socket
-- renvoi du message recu write socket
-*/
-
 	char msg_ent[50];
 	int lecture;
 	while((lecture = recv(socket_client, msg_ent, 50, 0))>0){
