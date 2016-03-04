@@ -32,7 +32,7 @@ int main ()
 
 	puts("Client connected\n");
 
-	const char* message = "Bonjour cher Client,\nVous êtes désormais connecté à ce magnifique serveur !\nPourquoi est-il magnifique ?\nJe n'en sais rien...\nMais il est magnifique, ok ????\n"; 
+	const char* message = "Bonjour cher Client,\nVous êtes désormais connecté à ce magnifique serveur !\nPourquoi est-il magnifique ?\nJe n'en sais rien...\nMais il est magnifique, ok ????\nC'est pas parce que t'as des complexe sur toi et ta vie que tout est moche hein !!! Ce serveur est magnifique parce que je le dis, et tu le trouve magnifique parce que je le dis aussi !! Alors arrête de faire genre c'est nul, c'est pas vrai ! C'est MAGNIFIQUE !!! L'incarnation de la magnificience, l'une des plus grandes merveille du monde !!!\nSi tu crois que tu sais faire mieux que ça, eh bah TANT PIS POUR TOI spèce de Jaloux wesh !!!!!!!!!!!!\n"; 
 
 	if (write(socket_client, message, strlen(message)) == -1) {
 		perror("write1 error");
