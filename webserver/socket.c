@@ -18,6 +18,12 @@ int create_server(int port)
         return EXIT_FAILURE;
     }
 
+    int optval = 1;
+    if ( setsockopt (socket_server, SOL_SOCKET , SO_REUSEADDR , & optval , sizeof ( int )) == -1) {
+        perror ( " Can not set SO_REUSEADDR option " );
+        return EXIT_FAILURE;
+    }
+
     if (bind(socket_server, (struct sockaddr *) &saddr, sizeof(saddr)) == -1) {
         perror("Bind error");
         return EXIT_FAILURE;
