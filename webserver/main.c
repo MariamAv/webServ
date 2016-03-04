@@ -52,11 +52,12 @@ boucle :
 			perror("write2");
 			return -1;
    		}
+		memset(msg_ent,0, sizeof(msg_ent));
 	}
-
 
     close(socket_server);
     close(socket_client);
+	puts("Connection Closed\n");
 
 	return 0;
 }
