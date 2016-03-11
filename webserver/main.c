@@ -32,7 +32,7 @@ int main ()
 
 	puts("Client connected\n");
 
-	const char* message = "Bonjour cher Client,\nVous êtes désormais connecté à ce magnifique serveur !\nPourquoi est-il magnifique ?\nJe n'en sais rien...\nMais il est magnifique, ok ????\nC'est pas parce que t'as des complexe sur toi et ta vie que tout est moche hein !!! Ce serveur est magnifique parce que je le dis, et tu le trouve magnifique parce que je le dis aussi !! Alors arrête de faire genre c'est nul, c'est pas vrai ! C'est MAGNIFIQUE !!! L'incarnation de la magnificience, l'une des plus grandes merveille du monde !!!\nSi tu crois que tu sais faire mieux que ça, eh bah TANT PIS POUR TOI spèce de Jaloux wesh !!!!!!!!!!!!\n"; 
+	const char* message = "\n\nBonjour cher Client,\nVous êtes désormais connecté à ce magnifique serveur !\nGrâce à ce serveur vous pouvez envoyer des messages à vous mêmes et faire pleins d'autres trucs, à vous de le découvrir ! ;)\n\n     (\\(\\        ~~~~~        /)/)          \n     (^.^)    { WELCOME }    (^.^)          \n    o(n_n)       ~~~~~       (n_n)o                        \n\n"; 
 
 	if (write(socket_client, message, strlen(message)) == -1) {
 		perror("write1 error");
@@ -41,7 +41,7 @@ int main ()
 
 	char msg_ent[100];
 	int lecture;
-	while((lecture = recv(socket_client, msg_ent, 50, 0))>0){
+	while((lecture = recv(socket_client, msg_ent, sizeof(msg_ent), 0))>0){
 		if (write(socket_client, msg_ent, strlen(msg_ent)) == -1) {
 			perror("write2 error");
 			return -1;
