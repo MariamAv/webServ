@@ -3,7 +3,9 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include <signal.h>
 #include "socket.h"
+
 
 int main ()
 {
@@ -16,7 +18,10 @@ int main ()
 		printf("Need an advice ?\n");
 		return 0;*/
 
-
+	if (signal(SIGPIPE, SIG_IGN) == SIG_ERR)
+	{
+		perror(" signal ");
+	}
 
 	int socket_server;
 	if ((socket_server = create_server(8080)) == -1) {
