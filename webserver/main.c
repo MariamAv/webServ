@@ -39,7 +39,7 @@ int main ()
 		return -1;
     }
 
-	char msg_ent[50];
+	char msg_ent[100];
 	int lecture;
 	while((lecture = recv(socket_client, msg_ent, 50, 0))>0){
 		if (write(socket_client, msg_ent, strlen(msg_ent)) == -1) {
