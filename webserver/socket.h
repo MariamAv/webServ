@@ -8,6 +8,7 @@
 	socket créée . */
 
 int create_server (int port);
+void initialiser_signaux(void);
 #endif
                                                   
 
