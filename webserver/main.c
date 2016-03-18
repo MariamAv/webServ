@@ -4,6 +4,8 @@
 #include <sys/socket.h>
 #include <unistd.h>
 #include <signal.h>
+#include <stdlib.h>
+#include <errno.h>
 #include "socket.h"
 
 
@@ -33,6 +35,8 @@ int main ()
 	} 
 
 	puts("Client Connected\n");
+
+
 
 	const char* message = "\n __      __      ___.     _________                   \n/  \\    /  \\ ____\\_ |__  /   _____/ ______________  __\n\\   \\/\\/   // __ \\| __ \\ \\_____  \\_/ __ \\_  __ \\  \\/ /\n \\        /\\  ___/| \\_\\ \\/        \\  ___/|  | \\/\\   / \n  \\__/\\  /  \\___  >___  /_______  /\\___  >__|    \\_/  \n       \\/       \\/    \\/        \\/     \\/             \n                                            ________________________\n  _______________________-------------------                        `\\\n /:--__                                                              |\n||< > |                                   ___________________________/\n| \\__/_________________-------------------                         |\n|                                                                  |\n |                             { WELCOME }                         |\n |                                                                  |\n |                        Bonjour cher Client,                      |\n  |        Vous êtes désormais connecté à ce magnifique serveur !    |\n  |      Grâce à ce serveur vous pouvez envoyer des messages         |\n  |        à vous même et faire pleins d'autres trucs,               |\n  |      à vous de le découvrir ! ;)                                  |\n   |                                                                  |\n   |                               /)/)                               |\n   |                              (^.^)                              |\n  |                               (n_n)o         ____________________|_\n  |  ___________________-------------------------                      `\\\n  |/`--_                                                                 |\n  ||[ ]||                                            ___________________/\n   \\===/___________________--------------------------\n\n\n"; 
 
